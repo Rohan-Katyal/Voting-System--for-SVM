@@ -16,8 +16,6 @@ app.use(express.json()); // Parse incoming JSON payloads
 // NEW: Tell Express to allow browsers to download files from the 'public' folder (like CSS and JS)
 app.use(express.static(path.join(__dirname, 'public')));
 
-const path = require('path');
-
 // Serve the voting portal as the default homepage
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'admin.html'));
