@@ -2,6 +2,8 @@ const { google } = require('googleapis');
 require('dotenv').config();
 
 // Format the private key to handle newline characters from the .env file
+console.log("Starts with:", process.env.GOOGLE_PRIVATE_KEY.substring(0, 35));
+console.log("Ends with:", process.env.GOOGLE_PRIVATE_KEY.slice(-35));
 const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n');
 
 const auth = new google.auth.GoogleAuth({
