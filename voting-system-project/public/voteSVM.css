@@ -1,0 +1,219 @@
+/* --- Base Styling --- */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #d0d0d0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+/* --- Admin Navbar Styles --- */
+
+.admin-navbar {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* The rest of the styling */
+  background-color: #ffffff;
+  max-width: 800px;
+  width: 90%;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1); 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+}
+
+.navbar-container {
+  max-width: 100%;
+  width : 90%;
+  margin: 10px auto;
+  padding: 16px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.school-branding {
+  display: flex;
+  align-items: center;
+}
+
+.school-logo {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
+
+.school-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.school-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.school-address {
+  font-size: 11px; /* Very small text as requested */
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin: 4px 0 0 0;
+}
+
+.event-badge {
+  background-color: #eff6ff; /* Soft blue background */
+  color: black; /* Deep blue text to match your buttons */
+  font-family: gilroy;
+  font-weight: 600;
+  font-size: 28px;
+  padding: 8px 20px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .school-branding {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .school-details {
+    align-items: center;
+  }
+}
+    
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 450px;
+      min-height: 400px;
+    }
+
+    /* --- Slow, Smooth CSS Transitions --- */
+    .screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 25px rgba(0,0,0,0.05);
+      box-sizing: border-box;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: opacity 1.2s ease, transform 1.2s ease, visibility 1.2s;
+    }
+    .screen.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      z-index: 10;
+    }
+
+    /* --- Forms & Typography --- */
+    h2 {
+      margin-top: 0;
+      color: #111827;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #374151;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #1d4ed8;
+    }
+    button:disabled {
+      background-color: #9ca3af;
+      cursor: not-allowed;
+    }
+    .error {
+      color: #dc2626;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      text-align: center;
+      min-height: 20px;
+    }
+
+    /* --- Ballot Candidates --- */
+    .candidate-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .candidate-card {
+      padding: 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.3s, background-color 0.3s;
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: #1f2937;
+    }
+    .candidate-card:hover {
+      border-color: #93c5fd;
+      background-color: #eff6ff;
+    }
+    .candidate-card.selected {
+      border-color: #2563eb;
+      background-color: #dbeafe;
+    }
+    
+    /* --- Success Message --- */
+    .success-icon {
+      font-size: 4rem;
+      text-align: center;
+      display: block;
+      margin-bottom: 1rem;
+    }

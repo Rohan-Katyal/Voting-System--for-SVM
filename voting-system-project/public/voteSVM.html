@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Voting Portal</title>
+  <link rel="stylesheet" href="/voteSVM.css">
+</head>
+<body>
+
+  <header class="admin-navbar">
+  <div class="navbar-container">
+    
+    <!-- Left Side: Logo and School Details -->
+    <div class="school-branding">
+      <!-- Replace 'YOUR_LOGO_LINK_HERE' with your actual image URL -->
+      <img src="https://play-lh.googleusercontent.com/fpDOPqh4COUgmJrsHmohMQhuUoQWDFgQ8DV6aiJkdR9o0T3X_avGFkAsw0QKbP7pIhX7h8WgtdSlMCArxWC2Akk=w480-h960-rw"
+      alt="School Logo" class="school-logo" />
+      
+      <div class="school-details">
+        <h1 class="school-name">Saraswati Vidya Mandir Senior Secondary School</h1>
+        <p class="school-address">Gonda Mod, Khair Road, Aligarh-202001</p>
+      </div>
+    </div>
+
+    <!-- Right Side: Event Name Badge -->
+    <div class="event-badge">
+      Student Council Election
+    </div>
+
+    </div>
+  </header>
+
+
+  <div class="container">
+
+    
+    
+    <!-- SCREEN 1: LOGIN -->
+    <div id="login-screen" class="screen active">
+      <h2>Voter Verification</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="voter-name">Full Name</label>
+          <input type="text" id="voter-name" required>
+        </div>
+        <div class="form-group">
+          <label for="voter-class">Class</label>
+          <input type="text" id="voter-class" required readonly style="background-color: #f3f4f6; pointer-events: none;"></input>
+        </div>
+        <div class="form-group">
+          <label for="voter-id">Voter ID</label>
+          <input type="text" id="voter-id" required>
+        </div>
+        <div id="login-error" class="error"></div>
+        <button type="submit" id="proceed-btn">Proceed to Ballot</button>
+      </form>
+    </div>
+
+    <!-- SCREEN 2: BALLOT -->
+    <div id="ballot-screen" class="screen">
+      <h2>Cast Your Vote</h2>
+      <p style="text-align: center; color: #4b5563; margin-bottom: 1.5rem;">Select your preferred candidate.</p>
+      
+      <div id="candidate-list" class="candidate-grid">
+        <!-- Candidates injected via JavaScript -->
+      </div>
+
+      <div id="vote-error" class="error"></div>
+      <button id="submit-vote-btn" disabled>Submit Vote</button>
+    </div>
+
+    <!-- SCREEN 3: SUCCESS -->
+    <div id="success-screen" class="screen">
+      <span class="success-icon">🎉</span>
+      <h2>Your vote has been counted!</h2>
+      <p style="text-align: center; color: #4b5563;">Thank you for participating.</p>
+      <button style="margin-top: 2rem;" onclick="resetSession()">Return to Start</button>
+    </div>
+
+  </div>
+
+  <script src="/voteSVM.js"></script>
+</body>
+</html>

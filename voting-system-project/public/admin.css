@@ -1,0 +1,194 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: lightgrey;
+    /* Updated to lightgrey */
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+input,
+select,
+button {
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+button.danger {
+    background: #dc2626;
+}
+
+button.danger:hover {
+    background: #b91c1c;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th,
+td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.open-voting-btn {
+  background-color: #2563eb; /* Matches the standard primary blue */
+  color: #ffffff;
+  margin: 10px;
+  padding: 10px 14px;         /* Standardizes the height with the input boxes */
+  border-radius: 4px;        /* Matches the slight rounding */
+  font-weight: 400;          /* Removes the bold text */
+  font-size: 16px;           /* Matches standard text size */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.open-voting-btn:hover {
+  background-color: #1d4ed8; /* Slightly darker blue on hover */
+}
+
+
+.update-active-class{
+    white-space: nowrap;
+    background-color: #2563eb; /* Matches the standard primary blue */
+    color: #ffffff;
+    margin: 10px;
+    padding: 10px 14px;         /* Standardizes the height with the input boxes */
+    border-radius: 4px;        /* Matches the slight rounding */
+    font-weight: 400;          /* Removes the bold text */
+    font-size: 16px;           /* Matches standard text size */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.update-active-class:hover{
+    background-color: #1d4ed8; /* Slightly darker blue on hover */
+}
+
+
+/* --- Admin Navbar Styles --- */
+
+.admin-navbar {
+  width: 50%;
+  height: 50%;
+  max-height: 70%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 5px 5px 15px 5px rgb(0,0,0, 0.2);
+  /* margin-bottom: 32px; */
+  padding: 10px;
+
+}
+
+.navbar-container {
+  max-width: 100%;
+  width : 90%;
+  margin: 10px auto;
+  padding: 16px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.school-branding {
+  display: flex;
+  align-items: center;
+}
+
+.school-logo {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}
+
+.school-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.school-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.school-address {
+  font-size: 11px; /* Very small text as requested */
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin: 4px 0 0 0;
+}
+
+.event-badge {
+  background-color: #eff6ff; /* Soft blue background */
+  color: black; /* Deep blue text to match your buttons */
+  font-family: gilroy;
+  font-weight: 600;
+  font-size: 28px;
+  padding: 8px 20px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .school-branding {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .school-details {
+    align-items: center;
+  }
+}

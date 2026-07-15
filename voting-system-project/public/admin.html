@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/admin.css">
+</head>
+
+<body>
+  <header class="admin-navbar">
+  <div class="navbar-container">
+    
+    <!-- Left Side: Logo and School Details -->
+    <div class="school-branding">
+      <!-- Replace 'YOUR_LOGO_LINK_HERE' with your actual image URL -->
+      <img src="https://play-lh.googleusercontent.com/fpDOPqh4COUgmJrsHmohMQhuUoQWDFgQ8DV6aiJkdR9o0T3X_avGFkAsw0QKbP7pIhX7h8WgtdSlMCArxWC2Akk=w480-h960-rw"
+      alt="School Logo" class="school-logo" />
+      
+      <div class="school-details">
+        <h1 class="school-name">Saraswati Vidya Mandir Senior Secondary School</h1>
+        <p class="school-address">Gonda Mod, Khair Road, Aligarh-202001</p>
+      </div>
+    </div>
+
+    <!-- Right Side: Event Name Badge -->
+    <div class="event-badge">
+      Student Council Election
+    </div>
+
+    </div>
+  </header>
+
+  <!-- AUTHENTICATION SECTION -->
+  <div id="auth-section" class="card" style="text-align: center;">
+    
+    <!-- LOGIN FORM -->
+    <div id="login-form-container">
+      <h2>Admin Login</h2>
+      <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px;">
+        <div style="text-align: left;">
+          <label for="login-id" style="font-weight: bold; font-size: 0.9rem; color: #374151;">Admin ID</label>
+          <input type="text" id="login-id" placeholder="e.g. John123@TechExpert" style="width: 100%; margin-top: 5px;">
+        </div>
+        <div style="text-align: left;">
+          <label for="login-pass" style="font-weight: bold; font-size: 0.9rem; color: #374151;">Password</label>
+          <div style="position: relative; display: flex; align-items: center; margin-top: 5px;">
+            <input type="password" id="login-pass" style="width: 100%; padding-right: 60px;">
+            <button type="button" onclick="togglePassword('login-pass', this)" style="position: absolute; right: 5px; background: transparent; border: none; color: #2563eb; cursor: pointer; padding: 5px; font-weight: bold; font-size: 0.85rem;">Show</button>
+          </div>
+        </div>
+      </div>
+      <button onclick="login()" style="width: 100%;">Login</button>
+      <p id="login-err" style="color: red; margin-top: 10px;"></p>
+      <p style="margin-top: 15px; font-size: 0.9rem;">Don't have an account? <a href="#" onclick="toggleAuthView('signup')" style="color: #2563eb; text-decoration: none; font-weight: bold;">Sign Up</a></p>
+    </div>
+
+    <!-- SIGNUP FORM (Hidden by default) -->
+    <div id="signup-form-container" class="hidden">
+      <h2>Create Admin Account</h2>
+      <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px;">
+        <div style="text-align: left;">
+          <label for="signup-name" style="font-weight: bold; font-size: 0.9rem; color: #374151;">Full Name</label>
+          <input type="text" id="signup-name" placeholder="e.g. John Doe" style="width: 100%; margin-top: 5px;">
+        </div>
+        <div style="text-align: left;">
+          <label for="signup-role" style="font-weight: bold; font-size: 0.9rem; color: #374151;">Role</label>
+          <input type="text" id="signup-role" placeholder="e.g. Tech Expert" style="width: 100%; margin-top: 5px;">
+        </div>
+        <div style="text-align: left;">
+          <label for="signup-pass" style="font-weight: bold; font-size: 0.9rem; color: #374151;">Password</label>
+          <div style="position: relative; display: flex; align-items: center; margin-top: 5px;">
+            <input type="password" id="signup-pass" style="width: 100%; padding-right: 60px;">
+            <button type="button" onclick="togglePassword('signup-pass', this)" style="position: absolute; right: 5px; background: transparent; border: none; color: #2563eb; cursor: pointer; padding: 5px; font-weight: bold; font-size: 0.85rem;">Show</button>          </div>
+        </div>
+      </div>
+      <button onclick="signup()" style="width: 100%; background-color: #10b981;">Sign Up</button>
+      <p id="signup-err" style="color: red; margin-top: 10px;"></p>
+      <div id="signup-success" style="color: #059669; margin-top: 10px; font-size: 0.95rem;"></div>
+      <p style="margin-top: 15px; font-size: 0.9rem;">Already have an account? <a href="#" onclick="toggleAuthView('login')" style="color: #2563eb; text-decoration: none; font-weight: bold;">Login</a></p>
+    </div>
+
+  </div>
+
+  <div id="dashboard-section" class="card hidden">
+  
+  <!-- WELCOME BANNER -->
+  <div style="background: #1e3a8a; color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+    
+    <!-- Left Column: Stacked Text -->
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px;">
+      <span style="font-size: 1rem; color: #cbd5e1;">Welcome,</span>
+      <h2 id="admin-name" style="margin: 0; font-size: 1.8rem; font-weight: bold; letter-spacing: 0.5px;">Admin Name</h2>
+      <span id="role-badge" style="background: #fbbf24; color: #78350f; padding: 0.35rem 1rem; border-radius: 9999px; font-weight: bold; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;">
+        Role
+      </span>
+    </div>
+
+    <!-- Right Column: Logout Button -->
+    <button onclick="logout()" style="background-color: #ef4444; color: white; border: none; padding: 0.6rem 1.5rem; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: background-color 0.2s;">
+      Logout
+    </button>
+  </div>
+
+  <!-- 1. KIOSK SETTINGS -->
+  <div style="background: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border: 2px solid rgb(83, 177, 255);">
+    <div class="form-row" style="display: flex; align-items: center; gap: 10px;">
+      <label for="current-active-class" style="font-weight: bold; color: #1e40af; white-space: nowrap; margin: 0;">Currently Active Class:</label>
+      <input type="text" id="current-active-class" placeholder="e.g., 8A" style="font-weight: bold; flex: 1; margin: 0;">
+      <button class="update-active-class" onclick="updateActiveClass()">Update Active Class</button>
+    </div>
+  </div>
+  <!-- LAUNCH KIOSK BUTTON -->
+  <div style="background: #eff6ff; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border: 2px dashed #3b82f6; display: flex; justify-content: space-between; align-items: center;">
+    <div>
+      <p style="margin: 5px 0 0 0; color: #475569; font-size: 0.9rem;">➔ Launch the voting screen for students.<br>➔ Requires an active admin Login.</p>
+    </div>
+    <button class="open-voting-btn" onclick="launchKiosk()">
+      Open Voting Screen ➔
+    </button>
+  </div>
+  <!-- 2. CANDIDATE MANAGEMENT -->
+  <h2>Candidate Management</h2>
+  <div class="form-row">
+    <input type="text" id="new-name" placeholder="Candidate Name">
+    <input type="text" id="new-class" placeholder="Class (e.g., 8A)">
+    <button onclick="addCandidate()">Add Candidate</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="candidate-tbody">
+      <!-- Rows injected here -->
+    </tbody>
+  </table>
+</div>
+
+  
+
+  <script src="/admin.js"></script>
+</body>
+
+</html>
